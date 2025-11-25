@@ -1,0 +1,61 @@
+# Documentation Configuration
+
+# This project uses LLMS.txt files for enhanced AI documentation support.
+
+# When available, use @Docs to reference documentation from:
+
+# - Chakra UI: https://chakra-ui.com/llms-full.txt
+
+# - Next.js: Available through next-devtools-mcp
+
+# - NX: Available through nx-mcp
+
+# - Other integrations: Check their respective LLMS.txt files
+
+# MCP Servers Configuration
+
+# MCP servers are configured in .cursor/mcp.json (for Cursor) and .gemini/settings.json (for Gemini CLI)
+
+# Available MCP servers:
+
+# - chakra-ui: Chakra UI component library and design tokens
+
+# - next-devtools: Next.js development tools and runtime access
+
+# - playwright: Browser automation and testing (works with Next.js)
+
+# - nx: Nx monorepo tools and workspace understanding
+
+# - neon: Neon database management (uses OAuth - will prompt for authentication)
+
+# Alternative: Use local API key version by replacing with:
+
+# {"command": "npx", "args": ["-y", "@neondatabase/mcp-server-neon", "start", "<YOUR_NEON_API_KEY>"]}
+
+# - vercel: Vercel deployment and project management (uses OAuth - will prompt for authentication)
+
+# - browser-use: Browser automation capabilities (requires BROWSER_USE_API_KEY environment variable)
+
+# Environment Variables Required
+
+# - BROWSER_USE_API_KEY: Required for browser-use MCP server (get from https://cloud.browser-use.com)
+
+# Note: Replace ${BROWSER_USE_API_KEY} in .cursor/mcp.json and .gemini/settings.json with your actual API key,
+
+# or set it as an environment variable if your MCP client supports environment variable expansion.
+
+# Better Auth MCP
+
+# Note: Better Auth MCP is a plugin that makes your app an OAuth provider for MCP clients,
+
+# not an external MCP server. It is configured separately in your Better Auth setup.
+
+# See: https://www.better-auth.com/docs/plugins/mcp
+
+# For Drizzle ORM integration with Better Auth, see: https://www.better-auth.com/docs/adapters/drizzle
+
+# Documentation References
+
+# Use @Docs to access comprehensive documentation from configured MCP servers.
+
+# Each MCP server provides access to relevant documentation and tools.
