@@ -27,6 +27,11 @@
       "headers": {
         "Authorization": "Bearer ${BROWSER_USE_API_KEY}"
       }
+    },
+    "Chrome DevTools": {
+      "command": "npx chrome-devtools-mcp@latest",
+      "env": {},
+      "args": []
     }
   }
 }

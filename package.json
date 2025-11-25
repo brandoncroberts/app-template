@@ -12,24 +12,35 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "test:drizzle": "vitest run src/lib/db/__tests__/connection.test.ts"
+    "test:drizzle": "vitest run src/lib/db/__tests__/connection.test.ts",
+    "test:auth": "vitest run src/lib/auth/__tests__/setup.test.ts",
+    "test:chakra": "vitest run src/components/UI/__tests__/providers.test.tsx"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.30.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@neondatabase/serverless": "^1.0.2",
     "@paralleldrive/cuid2": "^3.0.4",
     "better-auth": "^1.4.1",
     "drizzle-orm": "^0.44.7",
+    "framer-motion": "^12.23.24",
     "next": "16.0.3",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5.1.1",
     "babel-plugin-react-compiler": "1.0.0",
+    "dotenv": "^17.2.3",
     "drizzle-kit": "^0.31.7",
+    "jsdom": "^27.2.0",
     "typescript": "^5",
     "vitest": "^4.0.14"
   }
