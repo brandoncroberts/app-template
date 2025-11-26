@@ -2,12 +2,12 @@
 
 ### Environment Variables
 
-Tests require environment variables to be set. Vitest will automatically load them from:
+Tests load environment variables using Vite's `loadEnv` method. Vitest automatically loads variables from `.env` files based on the mode:
 
-1. `.env.test.local` (highest priority, for test-specific overrides)
-2. `.env.local` (local development variables)
-3. `.env.test` (test environment variables)
-4. `.env` (default fallback)
+- `.env.test.local` (highest priority)
+- `.env.local`
+- `.env.test`
+- `.env`
 
 **Required Environment Variables:**
 
@@ -16,6 +16,8 @@ Tests require environment variables to be set. Vitest will automatically load th
 - `BETTER_AUTH_URL` - Your app URL (e.g., `http://localhost:3000`)
 
 Create a `.env.local` file in the root directory with these variables for local development and testing.
+
+See [Vitest Environment Variables documentation](https://vitest.dev/guide/features.html#environment-variables) for more details.
 
 ### Development Server
 
@@ -279,3 +281,198 @@ This verifies that:
 - Chakra UI providers are properly configured
 - Components render correctly
 - React Testing Library is set up correctly
+
+## NX Setup
+
+This project uses [NX](https://nx.dev/) as a standalone project (not a monorepo) for build system, task running, and caching capabilities.
+
+### Documentation
+
+- [NX Documentation](https://nx.dev/docs/getting-started/installation)
+- [Adopting NX in Existing Projects](https://nx.dev/docs/guides/adopting-nx)
+- [NX MCP Server](https://nx.dev/docs/getting-started/ai-setup)
+
+### Configuration
+
+- **NX Config**: `nx.json` - NX workspace configuration
+- **Project Config**: `project.json` - Project-specific targets and configuration
+
+### Installation
+
+NX and required plugins have been installed:
+
+- `nx` - Core NX package
+- `@nx/next` - Next.js plugin for NX
+- `@nx/eslint` - ESLint integration
+- `@nx/vite` - Vite integration for testing
+
+### Usage
+
+NX provides task running and caching capabilities. You can use NX commands:
+
+```bash
+# Run tasks with NX caching
+nx build
+nx lint
+nx test
+
+# View task graph
+nx graph
+
+# Clear cache
+nx reset
+```
+
+### Benefits
+
+- **Task Caching**: NX caches task results, speeding up builds and tests
+- **Task Graph**: Visualize and understand your project's task dependencies
+- **Parallel Execution**: Run tasks in parallel when possible
+- **Affected Detection**: Only run tasks for affected parts of your codebase
+
+### Testing
+
+Run the NX setup test:
+
+```bash
+pnpm test:nx
+```
+
+This verifies that:
+
+- NX is properly installed
+- Configuration files are present
+- NX can be used for task running
+
+## Biome Configuration
+
+This project uses [Biome](https://biomejs.dev/) for linting and formatting, configured to match ESLint Perfectionist style.
+
+### Documentation
+
+- [Biome Documentation](https://biomejs.dev/guides/configure-biome/)
+- [ESLint Perfectionist](https://perfectionist.dev/configs)
+
+### Configuration
+
+- **Config File**: `biome.json` - Biome configuration with perfectionist-style rules
+
+### Features
+
+- **Import Organization**: Automatically organizes imports
+- **Code Formatting**: Consistent code style with 2-space indentation
+- **Linting**: Comprehensive linting rules for React and Next.js
+- **Type Safety**: TypeScript-aware linting rules
+
+### Usage
+
+```bash
+# Check for linting and formatting issues
+pnpm lint
+
+# Auto-fix linting and formatting issues
+pnpm format
+```
+
+### Key Rules
+
+- Import type enforcement (`useImportType`)
+- Node.js import protocol enforcement (`useNodejsImportProtocol`)
+- Exhaustive dependencies checking
+- Organized imports with automatic sorting
+
+## Playwright E2E Testing
+
+This project uses [Playwright](https://playwright.dev/) for end-to-end testing.
+
+### Documentation
+
+- [Playwright Documentation](https://playwright.dev/docs/intro)
+- [Next.js Playwright Guide](https://nextjs.org/docs/pages/guides/testing/playwright)
+- [Playwright CI Guide](https://playwright.dev/docs/ci)
+
+### Configuration
+
+- **Config File**: `playwright.config.ts` - Playwright configuration
+- **Test Directory**: `e2e/` - End-to-end test files
+
+### Installation
+
+Playwright and browsers have been installed:
+
+- `@playwright/test` - Core Playwright testing library
+- Chromium, Firefox, and WebKit browsers
+
+### Usage
+
+```bash
+# Run all E2E tests
+pnpm test:e2e
+
+# Run tests with UI mode (interactive)
+pnpm test:e2e:ui
+
+# Run tests in headed mode (see browser)
+pnpm test:e2e:headed
+
+# Debug tests
+pnpm test:e2e:debug
+```
+
+### Writing Tests
+
+Add your E2E tests to the `e2e/` directory:
+
+```typescript
+import { test, expect } from "@playwright/test";
+
+test("my feature works", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("h1")).toBeVisible();
+});
+```
+
+### Features
+
+- **Auto Server**: Automatically starts Next.js dev server before tests
+- **Multiple Browsers**: Tests run on Chromium, Firefox, and WebKit
+- **Trace Viewer**: Automatic trace collection on retries
+- **CI Ready**: Configured for CI environments with retries
+
+## Renovate Bot
+
+This project uses [Renovate Bot](https://github.com/renovatebot/renovate) to automatically keep dependencies up to date.
+
+### Documentation
+
+- [Renovate Documentation](https://docs.renovatebot.com/)
+- [Renovate GitHub App](https://github.com/apps/renovate)
+
+### Configuration
+
+- **Config File**: `renovate.json` - Renovate bot configuration
+
+### Setup
+
+1. **Install Renovate GitHub App**:
+
+   - Go to [Renovate App on GitHub](https://github.com/apps/renovate)
+   - Click "Install" and select your repository
+
+2. **Configuration**:
+   - The `renovate.json` file is already configured
+   - Renovate will create an onboarding PR when first installed
+
+### Features
+
+- **Auto-merge**: Minor and patch updates are automatically merged
+- **Scheduled Updates**: Updates are created on Mondays before 10am EST
+- **Rate Limiting**: Limits concurrent PRs to prevent spam
+- **Major Updates**: Major version updates require manual review
+
+### Configuration Details
+
+- **Auto-merge**: Enabled for minor/patch updates
+- **Schedule**: Mondays before 10am EST
+- **Concurrent PRs**: Maximum 5 at a time
+- **Hourly Limit**: Maximum 2 PRs per hour

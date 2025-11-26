@@ -14,7 +14,11 @@
     "db:studio": "drizzle-kit studio",
     "test:drizzle": "vitest run src/lib/db/__tests__/connection.test.ts",
     "test:auth": "vitest run src/lib/auth/__tests__/setup.test.ts",
-    "test:chakra": "vitest run src/components/UI/__tests__/providers.test.tsx"
+    "test:chakra": "vitest run src/components/UI/__tests__/providers.test.tsx",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:debug": "playwright test --debug"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.30.0",
@@ -31,6 +35,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@playwright/test": "^1.57.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^20",
@@ -38,10 +43,10 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.1",
     "babel-plugin-react-compiler": "1.0.0",
-    "dotenv": "^17.2.3",
     "drizzle-kit": "^0.31.7",
     "jsdom": "^27.2.0",
     "typescript": "^5",
+    "vite": "^7.2.4",
     "vitest": "^4.0.14"
   }
 }
