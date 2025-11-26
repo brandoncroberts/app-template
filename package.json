@@ -14,7 +14,6 @@
     "db:studio": "drizzle-kit studio",
     "test:drizzle": "vitest run src/lib/db/__tests__/connection.test.ts",
     "test:auth": "vitest run src/lib/auth/__tests__/setup.test.ts",
-    "test:chakra": "vitest run src/components/UI/__tests__/providers.test.tsx",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
@@ -30,11 +29,14 @@
     "drizzle-orm": "^0.44.7",
     "framer-motion": "^12.23.24",
     "next": "16.0.3",
+    "next-themes": "^0.4.6",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@chakra-ui/cli": "^3.30.0",
     "@nx/web": "22.1.2",
     "@playwright/test": "^1.57.0",
     "@testing-library/jest-dom": "^6.9.1",
