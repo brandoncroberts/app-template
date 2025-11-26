@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nx next:dev",
-    "build": "nx next:build",
-    "start": "nx next:start",
+    "dev": "nx dev",
+    "build": "nx build",
+    "start": "nx start",
     "lint": "biome check",
     "format": "biome format --write",
     "db:generate": "drizzle-kit generate",
@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
-    "@nx/next": "22.1.2",
     "@nx/playwright": "22.1.2",
     "@nx/vite": "22.1.2",
     "@nx/vitest": "22.1.2",
