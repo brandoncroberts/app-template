@@ -3,22 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "nx next:dev",
+    "build": "nx next:build",
+    "start": "nx next:start",
     "lint": "biome check",
     "format": "biome format --write",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "test:drizzle": "vitest run src/lib/db/__tests__/connection.test.ts",
-    "test:auth": "vitest run src/lib/auth/__tests__/setup.test.ts",
-    "test:chakra": "vitest run src/components/UI/__tests__/providers.test.tsx",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test:e2e:headed": "playwright test --headed",
-    "test:e2e:debug": "playwright test --debug"
+    "test:drizzle": "nx test run src/lib/db/__tests__/connection.test.ts",
+    "test:auth": "nx test run src/lib/auth/__tests__/setup.test.ts",
+    "test:chakra": "nx test run src/components/UI/__tests__/providers.test.tsx",
+    "test:e2e": "nx e2e",
+    "test:e2e:ui": "nx e2e --ui",
+    "test:e2e:headed": "nx e2e --headed",
+    "test:e2e:debug": "nx e2e --debug"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.30.0",
@@ -35,6 +35,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@nx/next": "22.1.2",
+    "@nx/playwright": "22.1.2",
+    "@nx/vite": "22.1.2",
+    "@nx/vitest": "22.1.2",
+    "@nx/web": "22.1.2",
     "@playwright/test": "^1.57.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
@@ -42,11 +47,15 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/ui": "^4.0.0",
     "babel-plugin-react-compiler": "1.0.0",
     "drizzle-kit": "^0.31.7",
+    "jiti": "2.4.2",
     "jsdom": "^27.2.0",
+    "nx": "22.1.2",
     "typescript": "^5",
     "vite": "^7.2.4",
     "vitest": "^4.0.14"
-  }
+  },
+  "nx": {}
 }
