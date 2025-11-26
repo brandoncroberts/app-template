@@ -3,4 +3,3 @@
 
 export * from "./example";
 export * from "./better-auth";
-

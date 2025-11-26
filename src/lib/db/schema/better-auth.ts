@@ -69,4 +69,3 @@ export const betterAuthSchema = {
   account,
   verification,
 };
-

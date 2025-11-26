@@ -5,4 +5,3 @@ export const comments = pgTable("comments", {
   comment: text("comment").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });
-

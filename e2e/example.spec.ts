@@ -14,4 +14,3 @@ test("page has heading", async ({ page }) => {
   const heading = page.locator("h1, h2, h3").first();
   await expect(heading).toBeVisible();
 });
-

@@ -23,4 +23,3 @@ describe("Chakra UI Providers", () => {
     expect(container).toBeDefined();
   });
 });
-
