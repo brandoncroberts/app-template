@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "chakra-ui": {
+      "command": "npx",
+      "args": ["-y", "@chakra-ui/react-mcp"]
+    },
+    "next-devtools": {
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    },
+    "nx": {
+      "command": "npx",
+      "args": ["-y", "nx-mcp@latest"]
+    },
+    "neon": {
+      "httpUrl": "https://mcp.neon.tech/mcp"
+    },
+    "vercel": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.vercel.com"]
+    },
+    "browser-use": {
+      "httpUrl": "https://api.browser-use.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${BROWSER_USE_API_KEY}"
+      }
+    }
+  }
+}
