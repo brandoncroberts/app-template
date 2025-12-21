@@ -1,35 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, useParams } from 'react-router-dom';
+import {
+  AuthView,
+  AccountView,
+  SignedIn,
+  UserButton,
+  RedirectToSignIn,
+} from '@neondatabase/neon-js/auth/react/ui';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Home() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <SignedIn>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '100vh',
+            gap: '2rem',
+          }}
+        >
+          <div style={{ textAlign: 'center' }}>
+            <h1>Welcome!</h1>
+            <p>You're successfully authenticated.</p>
+            <UserButton />
+          </div>
+        </div>
+      </SignedIn>
+      <RedirectToSignIn />
     </>
-  )
+  );
 }
 
-export default App
+function Auth() {
+  const { pathname } = useParams();
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        padding: '2rem 1rem',
+      }}
+    >
+      <AuthView pathname={pathname} />
+    </div>
+  );
+}
+
+function Account() {
+  const { pathname } = useParams();
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        padding: '2rem 1rem',
+      }}
+    >
+      <AccountView pathname={pathname} />
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/auth/:pathname" element={<Auth />} />
+      <Route path="/account/:pathname" element={<Account />} />
+    </Routes>
+  );
+}
