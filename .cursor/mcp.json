@@ -2,7 +2,10 @@
   "mcpServers": {
     "playwright": {
       "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"]
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
     },
     "neon": {
       "url": "https://mcp.neon.tech/mcp"
@@ -14,6 +17,13 @@
       "command": "npx chrome-devtools-mcp@latest",
       "env": {},
       "args": []
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ]
     }
   }
 }

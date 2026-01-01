@@ -14,6 +14,13 @@
       "command": "npx chrome-devtools-mcp@latest",
       "env": {},
       "args": []
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ]
     }
   }
 }
